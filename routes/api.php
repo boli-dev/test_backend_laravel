@@ -1,19 +1,13 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\api\TestController;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
+Route::get('/test', [TestController::class, 'index']);
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('/dates', [TestController::class, 'dates']);
+Route::get('/weekends', [TestController::class, 'weekends']);
+Route::get('/clearList', [TestController::class, 'clearList']);
+Route::get('/valuesAssigned', [TestController::class, 'valuesAssigned']);
+Route::get('/checkAboveOrBelow1P', [TestController::class, 'checkAboveOrBelow1P']);
+Route::get('/result', [TestController::class, 'finalTouch']);
